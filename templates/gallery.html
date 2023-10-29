@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+<body>
+    <h1 style="color: blue;"><i>Image gallery</i></h1>
+    <a href="{% url 'image_search' %}">search for images</a><br>
+    <div>
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.title }}" height="300px" width="300px">
+            <p>{{ image.title }}</p>
+        {% endfor %}
+    </div>
+
+
+    <a href="{% url 'upload_image' %}">upload_image</a>
+</body>
+</html>

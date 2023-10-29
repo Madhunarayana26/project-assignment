@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Search</title>
+</head>
+<body>
+    <h1 style="color:red;"><i>Image Gallery</i></h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Search"><br>
+    </form>
+    <div>
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.title }}" height="300px" width="300px">
+            <p style="color: blue;">{{ image.title }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
